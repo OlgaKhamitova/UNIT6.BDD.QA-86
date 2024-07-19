@@ -1,13 +1,13 @@
 package ru.netology.page;
-
-import ru.netology.data.DataHelper;
+import ru.netology.dto.AuthInfo;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage1 {
-    public void validLogin(DataHelper.AuthInfo info){
+public class LoginPage {
+    public VerificationPage validLogin(AuthInfo info){
         $("[data-test-id=login] input").setValue(info.getLogin());
         $("[data-test-id=password] input").setValue(info.getPassword());
         $("[data-test-id=action-login]").click();
+        return new VerificationPage();
     }
 }
